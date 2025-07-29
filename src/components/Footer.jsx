@@ -8,7 +8,7 @@ const Footer = ({ personalInfo }) => (
           © 2025 {personalInfo.name}. All rights reserved.
         </p>
         <a
-          href="/resume.pdf"
+          href="https://drive.google.com/file/d/17JFFqwK2LlK4rOzqniuwFFY8_xFYymMH/view?usp=sharing"
           download
           className="bg-white/80 text-[#4f46e5] px-8 py-4 rounded-2xl font-bold shadow-xl hover:scale-105 transition-transform duration-300 border border-[#e0e7ff] hover:bg-gradient-to-r hover:from-[#4f46e5] hover:to-[#f43f5e] hover:text-white"
         >
@@ -20,27 +20,3 @@ const Footer = ({ personalInfo }) => (
 );
 
 export default Footer;
-
-// Add a fixed Download Resume button to always show on the page
-export const FixedResumeButton = () => (
-  <a
-    href="/resume.pdf"
-    download
-    className="fixed bottom-8 right-8 z-50 bg-white/80 text-[#4f46e5] px-6 py-3 rounded-2xl font-bold shadow-xl hover:scale-105 transition-transform duration-300 border border-[#e0e7ff] hover:bg-gradient-to-r hover:from-[#4f46e5] hover:to-[#f43f5e] hover:text-white fixed-resume-btn"
-    style={{boxShadow: '0 4px 24px rgba(79,70,229,0.15)'}}
-  >
-    Download Resume
-  </a>
-);
-
-// Add this to your global CSS (e.g., App.css):
-/*
-.fixed-resume-btn {
-  @media (max-width: 640px) {
-    bottom: 16px !important;
-    right: 16px !important;
-    width: 90vw !important;
-    left: 5vw !important;
-  }
-}
-*/
