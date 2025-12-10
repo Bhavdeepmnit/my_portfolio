@@ -19,8 +19,85 @@ const HeroSection = ({ personalInfo, currentText, scrollToSection }) => {
 
   return (
   <section id="home" className="relative pt-20 pb-16 min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#f8fafc] via-[#e0e7ff] to-[#f0fdfa]">
-    {/* Background Image Overlay */}
-    {/* Remove SVG background, use gradient background from section */}
+    {/* 3D Grid Background SVG */}
+    <svg
+      className="absolute inset-0 w-full h-full z-0 opacity-20"
+      viewBox="0 0 1200 800"
+      preserveAspectRatio="xMidYMid slice"
+    >
+      <defs>
+        <linearGradient id="gridGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#4f46e5" stopOpacity="0.3" />
+          <stop offset="50%" stopColor="#7c3aed" stopOpacity="0.2" />
+          <stop offset="100%" stopColor="#f43f5e" stopOpacity="0.3" />
+        </linearGradient>
+        <filter id="gridGlow">
+          <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+          <feMerge>
+            <feMergeNode in="coloredBlur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+      
+      {/* 3D Perspective Grid Lines - Horizontal */}
+      {Array.from({ length: 15 }).map((_, i) => {
+        const y = (i / 14) * 800;
+        const perspectiveOffset = (i / 14) * 300;
+        return (
+          <line
+            key={`h-${i}`}
+            x1={perspectiveOffset}
+            y1={y}
+            x2={1200 - perspectiveOffset}
+            y2={y}
+            stroke="url(#gridGradient)"
+            strokeWidth="1.5"
+            opacity={1 - i / 20}
+            filter="url(#gridGlow)"
+          />
+        );
+      })}
+      
+      {/* 3D Perspective Grid Lines - Vertical */}
+      {Array.from({ length: 20 }).map((_, i) => {
+        const x = (i / 19) * 1200;
+        const perspectiveOffset = (i / 19) * 200;
+        return (
+          <line
+            key={`v-${i}`}
+            x1={x}
+            y1={perspectiveOffset}
+            x2={x}
+            y2={800 - perspectiveOffset * 0.5}
+            stroke="url(#gridGradient)"
+            strokeWidth="1.5"
+            opacity={1 - i / 25}
+            filter="url(#gridGlow)"
+          />
+        );
+      })}
+      
+      {/* Grid Intersection Points */}
+      {Array.from({ length: 10 }).map((_, i) =>
+        Array.from({ length: 15 }).map((_, j) => {
+          const x = (j / 14) * 1200;
+          const y = (i / 9) * 800;
+          return (
+            <circle
+              key={`point-${i}-${j}`}
+              cx={x}
+              cy={y}
+              r="2"
+              fill="#7c3aed"
+              opacity={(1 - i / 15) * 0.4}
+              className="animate-pulse"
+            />
+          );
+        })
+      )}
+    </svg>
+
     {/* Animated Background Elements */}
     <div className="absolute inset-0 z-10">
       <div className="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full animate-bounce"></div>

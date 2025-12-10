@@ -12,6 +12,13 @@ import ProjectsSection from './components/ProjectsSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 
+const typingTexts = [
+  "Full Stack Developer",
+  "Machine Learning Enthusiast",
+  "Competitive Programmer",
+  "Problem Solver"
+];
+
 function App() {
   // Move all state and data from Portfolio.jsx here
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,13 +26,6 @@ function App() {
   const [currentText, setCurrentText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-
-  const typingTexts = [
-    "Full Stack Developer",
-    "Machine Learning Enthusiast",
-    "Competitive Programmer",
-    "Problem Solver"
-  ];
 
   const personalInfo = {
     name: "Bhavdeep",
@@ -158,7 +158,7 @@ const skills = [
     };
     const timer = setTimeout(type, isDeleting ? deleteSpeed : typeSpeed);
     return () => clearTimeout(timer);
-  }, [currentText, isDeleting, currentIndex, typingTexts]);
+  }, [currentText, isDeleting, currentIndex]);
 
   // Handle scroll for active section
   useEffect(() => {
@@ -194,10 +194,8 @@ const skills = [
         currentText={currentText}
         scrollToSection={scrollToSection}
       />
-      <section id="about">
-        <AboutSection />
-      </section>
-      <EducationSection personalInfo={personalInfo} />
+      <AboutSection />
+      <EducationSection />
       <SkillsSection skills={skills} />
       <ExperienceSection experiences={experiences} />
       <ProjectsSection projects={projects} />

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EducationSection = ({ personalInfo }) => (
+const EducationSection = () => (
   <section id="education" className="py-16 bg-gradient-to-br from-[#f8fafc] via-[#e0e7ff] to-[#f0fdfa]">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-12">

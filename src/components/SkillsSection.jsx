@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import cppIcon from '../assets/cpp.png';
 import pythonIcon from '../assets/python.png';
 import jsIcon from '../assets/js.png';
@@ -64,7 +64,6 @@ const skillIcons = {
 };
 
 const SkillsSection = ({ skills }) => {
-  const [hoveredSkill, setHoveredSkill] = useState(null);
   return (
     <section id="skills" className="py-16 bg-gradient-to-br from-[#f8fafc] via-[#e0e7ff] to-[#f0fdfa]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -74,22 +73,30 @@ const SkillsSection = ({ skills }) => {
         </div>
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-wrap justify-center gap-8">
-            {skills.map((skill, index) => (
-              <button
-                key={index}
-                className={`relative bg-white/80 px-8 py-6 rounded-2xl shadow-xl font-semibold text-gray-900 text-lg transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#7c3aed]/40 border border-[#e0e7ff] hover:bg-gradient-to-r hover:from-[#4f46e5] hover:to-[#f43f5e] hover:text-white hover:scale-105`}
-                style={{ minWidth: 140 }}
-              >
-                {skill.name}
-                <span className="absolute top-2 right-2 text-xs text-[#7c3aed] font-bold bg-white/70 px-2 py-1 rounded-full shadow">{skill.level}%</span>
-                <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
-                  <div
-                    className="bg-gradient-to-r from-[#4f46e5] to-[#f43f5e] h-2 rounded-full"
-                    style={{ width: `${skill.level}%` }}
-                  ></div>
-                </div>
-              </button>
-            ))}
+            {skills.map((skill, index) => {
+              const icon = skillIcons[skill.name];
+              return (
+                <button
+                  key={index}
+                  className={`relative bg-white/80 px-8 py-6 rounded-2xl shadow-xl font-semibold text-gray-900 text-lg transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#7c3aed]/40 border border-[#e0e7ff] hover:bg-gradient-to-r hover:from-[#4f46e5] hover:to-[#f43f5e] hover:text-white hover:scale-105`}
+                  style={{ minWidth: 160 }}
+                >
+                  <div className="flex items-center justify-center gap-3 mb-2">
+                    {icon && (
+                      <img src={icon} alt={skill.name} className="w-8 h-8 rounded-full object-contain" />
+                    )}
+                    <span>{skill.name}</span>
+                  </div>
+                  <span className="absolute top-2 right-2 text-xs text-[#7c3aed] font-bold bg-white/70 px-2 py-1 rounded-full shadow">{skill.level}%</span>
+                  <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
+                    <div
+                      className="bg-gradient-to-r from-[#4f46e5] to-[#f43f5e] h-2 rounded-full"
+                      style={{ width: `${skill.level}%` }}
+                    ></div>
+                  </div>
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
