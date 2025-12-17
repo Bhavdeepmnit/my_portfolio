@@ -14,7 +14,7 @@ import Footer from './components/Footer';
 
 const typingTexts = [
   "Full Stack Developer",
-  "Machine Learning Enthusiast",
+  "AI/ML Enthusiast",
   "Competitive Programmer",
   "Problem Solver"
 ];
@@ -135,7 +135,7 @@ const skills = [
 
   // Typing animation effect
   useEffect(() => {
-    const typeSpeed = 150;
+    const typeSpeed = 50;
     const deleteSpeed = 75;
     const pauseTime = 2000;
 
@@ -160,7 +160,7 @@ const skills = [
     return () => clearTimeout(timer);
   }, [currentText, isDeleting, currentIndex]);
 
-  // Handle scroll for active section
+  // // Handle scroll for active section
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'about', 'education', 'skills', 'experience', 'projects', 'achievements', 'contact'];
