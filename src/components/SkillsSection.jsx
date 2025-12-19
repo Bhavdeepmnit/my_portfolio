@@ -65,36 +65,49 @@ const skillIcons = {
 
 const SkillsSection = ({ skills }) => {
   return (
-    <section id="skills" className="py-16 bg-gradient-to-br from-[#f8fafc] via-[#e0e7ff] to-[#f0fdfa]">
+    <section id="skills" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#4f46e5] via-[#7c3aed] to-[#f43f5e] mb-4 drop-shadow-lg">Skills</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#4f46e5] via-[#7c3aed] to-[#f43f5e] mx-auto rounded-full"></div>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 font-heading tracking-tight">
+            Technical <span className="text-indigo-600">Skills</span>
+          </h2>
+          <div className="w-20 h-1.5 bg-indigo-600 mx-auto rounded-full opacity-80"></div>
         </div>
-        <div className="max-w-4xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-8">
+
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {skills.map((skill, index) => {
               const icon = skillIcons[skill.name];
               return (
-                <button
+                <div
                   key={index}
-                  className={`relative bg-white/80 px-8 py-6 rounded-2xl shadow-xl font-semibold text-gray-900 text-lg transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#7c3aed]/40 border border-[#e0e7ff] hover:bg-gradient-to-r hover:from-[#4f46e5] hover:to-[#f43f5e] hover:text-white hover:scale-105`}
-                  style={{ minWidth: 160 }}
+                  className="group relative bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-indigo-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                 >
-                  <div className="flex items-center justify-center gap-3 mb-2">
-                    {icon && (
-                      <img src={icon} alt={skill.name} className="w-8 h-8 rounded-full object-contain" />
+                  <div className="flex flex-col items-center text-center gap-4">
+                    {icon ? (
+                      <div className="w-12 h-12 p-2 bg-white rounded-full shadow-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <img src={icon} alt={skill.name} className="w-full h-full object-contain" />
+                      </div>
+                    ) : (
+                      <div className="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center font-bold text-lg">
+                        {skill.name[0]}
+                      </div>
                     )}
-                    <span>{skill.name}</span>
+
+                    <div className="w-full">
+                      <h3 className="font-bold text-slate-700 mb-2 group-hover:text-indigo-600 transition-colors">{skill.name}</h3>
+                      <div className="w-full bg-slate-200 rounded-full h-1.5 overflow-hidden">
+                        <div
+                          className="bg-indigo-600 h-1.5 rounded-full transition-all duration-1000 ease-out group-hover:bg-indigo-500"
+                          style={{ width: `${skill.level}%` }}
+                        ></div>
+                      </div>
+                      <div className="mt-2 text-right">
+                        <span className="text-xs font-semibold text-slate-400">{skill.level}%</span>
+                      </div>
+                    </div>
                   </div>
-                  <span className="absolute top-2 right-2 text-xs text-[#7c3aed] font-bold bg-white/70 px-2 py-1 rounded-full shadow">{skill.level}%</span>
-                  <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
-                    <div
-                      className="bg-gradient-to-r from-[#4f46e5] to-[#f43f5e] h-2 rounded-full"
-                      style={{ width: `${skill.level}%` }}
-                    ></div>
-                  </div>
-                </button>
+                </div>
               );
             })}
           </div>

@@ -1,95 +1,123 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Navigation = ({ personalInfo, activeSection, scrollToSection, isMenuOpen, setIsMenuOpen }) => {
+  const [scrolled, setScrolled] = useState(false);
   const [hoveredItem, setHoveredItem] = useState(null);
   const navItems = ["Home", "About", "Education", "Skills", "Experience", "Projects", "Achievements", "Contact"];
 
-  const handleItemHover = (item) => setHoveredItem(item);
-  const handleItemLeave = () => setHoveredItem(null);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const handleItemClick = (item) => scrollToSection(item.toLowerCase());
 
-return (
-    <nav role="navigation" aria-label="Main Navigation" className="fixed top-0 w-full bg-gradient-to-r from-[#4f46e5] via-[#7c3aed] to-[#f43f5e] backdrop-blur-md shadow-lg z-50 border-b border-[#e0e7ff]">
+  return (
+    <nav
+      role="navigation"
+      aria-label="Main Navigation"
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled || isMenuOpen
+        ? "bg-white/80 backdrop-blur-md shadow-sm border-b border-white/20"
+        : "bg-transparent"
+        }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="text-3xl font-extrabold bg-white/80 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 cursor-pointer drop-shadow-lg">
-            {personalInfo.name}
+
+          {/* Logo */}
+          <div
+            className="text-2xl font-bold text-slate-800 cursor-pointer tracking-tight font-heading group"
+            onClick={() => scrollToSection('home')}
+          >
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600 group-hover:to-indigo-600 transition-all duration-300">
+              {personalInfo.name}
+            </span>
+            <span className="text-indigo-600">.</span>
           </div>
-          <div className="hidden md:flex space-x-2 bg-white/80 backdrop-blur-sm rounded-2xl px-8 py-3 shadow-xl border border-[#e0e7ff]">
-            {navItems.map((item) => (
-              <button
-                key={item}
-                tabIndex={0}
-                aria-label={`Go to ${item}`}
-                onMouseEnter={() => handleItemHover(item)}
-                onMouseLeave={handleItemLeave}
-                onClick={() => handleItemClick(item)}
-                className={`relative px-6 py-3 text-base font-bold transition-all duration-300 rounded-2xl group border border-transparent focus:outline-none focus:ring-4 focus:ring-[#7c3aed]/40 ${
-                  activeSection === item.toLowerCase()
-                    ? "text-white bg-gradient-to-r from-[#4f46e5] to-[#f43f5e] shadow-lg scale-105 border-[#e0e7ff]"
-                    : hoveredItem === item
-                    ? "text-white bg-gradient-to-r from-[#4f46e5] to-[#f43f5e] scale-105 shadow-md border-[#e0e7ff]"
-                    : "text-[#4f46e5] hover:bg-gradient-to-r hover:from-[#4f46e5] hover:to-[#f43f5e] hover:text-white"
-                }`}
-              >
-                <span className="relative z-10">{item}</span>
-                {hoveredItem === item && activeSection !== item.toLowerCase() && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#4f46e5] to-[#f43f5e] opacity-10 rounded-2xl animate-pulse"></div>
-                )}
-                {activeSection === item.toLowerCase() && (
-                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-white rounded-full"></div>
-                )}
-              </button>
-            ))}
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center space-x-1">
+            {navItems.map((item) => {
+              const isActive = activeSection === item.toLowerCase();
+              return (
+                <button
+                  key={item}
+                  onClick={() => handleItemClick(item)}
+                  onMouseEnter={() => setHoveredItem(item)}
+                  onMouseLeave={() => setHoveredItem(null)}
+                  className={`relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ${isActive
+                    ? "text-indigo-600 bg-indigo-50"
+                    : "text-slate-600 hover:text-indigo-600 hover:bg-slate-50"
+                    }`}
+                >
+                  {item}
+                  {isActive && (
+                    <span className="absolute bottom-1.5 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-indigo-600 rounded-full"></span>
+                  )}
+                </button>
+              );
+            })}
+
+            {/* CTA Button */}
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="ml-4 px-5 py-2.5 text-sm font-semibold text-white bg-slate-900 rounded-full hover:bg-indigo-600 transition-colors duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+            >
+              Hire Me
+            </button>
           </div>
+
+          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-3 text-[#4f46e5] hover:text-white hover:bg-gradient-to-r hover:from-[#4f46e5] hover:to-[#f43f5e] rounded-xl transition-all duration-200 hover:scale-110 shadow-xl"
+              className="p-2 text-slate-600 hover:text-indigo-600 transition-colors focus:outline-none"
+              aria-label="Toggle menu"
             >
-              <div className="w-6 h-6 flex flex-col justify-center items-center">
-                {isMenuOpen ? (
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                ) : (
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
-                )}
+              <div className="w-6 flex flex-col items-end gap-1.5">
+                <span className={`h-0.5 bg-current transition-all duration-300 ${isMenuOpen ? "w-6 rotate-45 translate-y-2" : "w-6"}`} />
+                <span className={`h-0.5 bg-current transition-all duration-300 ${isMenuOpen ? "opacity-0" : "w-4"}`} />
+                <span className={`h-0.5 bg-current transition-all duration-300 ${isMenuOpen ? "w-6 -rotate-45 -translate-y-2" : "w-6"}`} />
               </div>
             </button>
           </div>
         </div>
-        {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 w-full bg-gradient-to-br from-[#f8fafc] via-[#e0e7ff] to-[#f0fdfa] backdrop-blur-md border-t border-[#e0e7ff] shadow-xl">
-            <div className="px-4 py-3 space-y-2">
-              {navItems.map((item) => (
-                <button
-                  key={item}
-                  onClick={() => {
-                    handleItemClick(item);
-                    setIsMenuOpen(false);
-                  }}
-                  onMouseEnter={() => handleItemHover(item)}
-                  onMouseLeave={handleItemLeave}
-                  className={`block w-full text-left px-6 py-4 text-lg font-bold rounded-2xl transition-all duration-300 transform hover:scale-105 border border-transparent focus:outline-none focus:ring-4 focus:ring-[#7c3aed]/40 ${
-                    activeSection === item.toLowerCase()
-                      ? "text-white bg-gradient-to-r from-[#4f46e5] to-[#f43f5e] shadow-lg border-[#e0e7ff]"
-                      : hoveredItem === item
-                      ? "text-white bg-gradient-to-r from-[#4f46e5] to-[#f43f5e] shadow-md border-[#e0e7ff]"
-                      : "text-[#4f46e5] hover:bg-gradient-to-r hover:from-[#4f46e5] hover:to-[#f43f5e] hover:text-white"
+
+        {/* Mobile Dropdown */}
+        <div
+          className={`md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-lg transition-all duration-300 ease-in-out origin-top ${isMenuOpen ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0 h-0"
+            }`}
+        >
+          <div className="px-4 py-6 space-y-2 flex flex-col">
+            {navItems.map((item) => (
+              <button
+                key={item}
+                onClick={() => {
+                  handleItemClick(item);
+                  setIsMenuOpen(false);
+                }}
+                className={`text-left px-4 py-3 text-lg font-medium rounded-xl transition-colors ${activeSection === item.toLowerCase()
+                  ? "bg-indigo-50 text-indigo-600"
+                  : "text-slate-600 hover:bg-slate-50"
                   }`}
-                >
-                  <span className="relative z-10">{item}</span>
-                </button>
-              ))}
-            </div>
-            <div className="flex items-center justify-between">
-              <div className="w-2 h-2 bg-[#4f46e5] rounded-full animate-pulse"></div>
-            </div>
+              >
+                {item}
+              </button>
+            ))}
+            <button
+              onClick={() => {
+                scrollToSection('contact');
+                setIsMenuOpen(false);
+              }}
+              className="mt-4 w-full py-3 text-center text-white bg-indigo-600 rounded-xl font-bold shadow-md active:scale-95 transition-transform"
+            >
+              Let's Talk
+            </button>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );
