@@ -16,12 +16,38 @@ html {
 
 body {
   font-family: var(--font-body);
-  background-color: #f8fafc;
-  /* Slate-50 */
-  color: #1e293b;
-  /* Slate-800 */
+  background-color: #020617;
+  /* Slate 950 - Deep Space */
+  color: #e2e8f0;
+  /* Slate 200 - Starlight */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4f46e5;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #818cf8;
+}
+
+/* Highlighting */
+::selection {
+  background: #22d3ee;
+  /* Cyan 400 */
+  color: #020617;
 }
 
 h1,
