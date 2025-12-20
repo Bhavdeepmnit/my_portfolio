@@ -254,10 +254,10 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 ## 📸 Screenshots
 
 ### Light Mode
-![Light Mode](screenshots/light-mode.png)
+![Light Mode](src/assets/light_theme.png)
 
 ### Dark Mode
-![Dark Mode](screenshots/dark-mode.png)
+![Dark Mode](src/assets/dark_theme.png)
 
 ---
 
