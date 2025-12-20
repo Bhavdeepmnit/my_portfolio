@@ -45,10 +45,6 @@ const EducationSection = ({ isDark }) => (
                     }`}>2022 - 2026</span>
                 </div>
               </div>
-              <div className={`mt-4 pt-4 border-t ${isDark ? 'border-white/5' : 'border-slate-50'}`}>
-                <span className={`font-bold ${isDark ? 'text-slate-400' : 'text-slate-700'}`}>CGPA:</span>
-                <span className={`ml-2 ${isDark ? 'text-white' : 'text-slate-600'}`}>6.36/10</span>
-              </div>
             </div>
           </div>
 
@@ -74,10 +70,6 @@ const EducationSection = ({ isDark }) => (
                     }`}>2020 - 2021</span>
                 </div>
               </div>
-              <div className={`mt-4 pt-4 border-t ${isDark ? 'border-white/5' : 'border-slate-50'}`}>
-                <span className={`font-bold ${isDark ? 'text-slate-400' : 'text-slate-700'}`}>Percentage:</span>
-                <span className={`ml-2 ${isDark ? 'text-white' : 'text-slate-600'}`}>96.80%</span>
-              </div>
             </div>
           </div>
 
@@ -101,10 +93,6 @@ const EducationSection = ({ isDark }) => (
                   <span className={`px-3 py-1 rounded-full text-xs font-bold ${isDark ? 'bg-cyan-500/10 text-cyan-300 border border-cyan-500/20' : 'bg-slate-100 text-slate-600 border border-slate-200'
                     }`}>2018 - 2019</span>
                 </div>
-              </div>
-              <div className={`mt-4 pt-4 border-t ${isDark ? 'border-white/5' : 'border-slate-50'}`}>
-                <span className={`font-bold ${isDark ? 'text-slate-400' : 'text-slate-700'}`}>Percentage:</span>
-                <span className={`ml-2 ${isDark ? 'text-white' : 'text-slate-600'}`}>88.20%</span>
               </div>
             </div>
           </div>
