@@ -30,19 +30,19 @@ const HeroSection = ({ personalInfo, currentText, scrollToSection, isDark }) => 
           {/* Text Content */}
           <div className="flex-1 text-center lg:text-left">
             <div className={`inline-block px-4 py-2 mb-6 rounded-full animate-fade-in-up ${isDark
-                ? 'bg-slate-900/50 border border-indigo-500/30 backdrop-blur-md shadow-[0_0_15px_rgba(79,70,229,0.3)]'
-                : 'bg-indigo-50 border border-indigo-100'
+              ? 'bg-slate-900/50 border border-indigo-500/30 backdrop-blur-md shadow-[0_0_15px_rgba(79,70,229,0.3)]'
+              : 'bg-indigo-50 border border-indigo-100'
               }`}>
               <span className={`font-semibold text-sm tracking-wide uppercase ${isDark ? 'text-cyan-400' : 'text-indigo-600'}`}>
-                {isDark ? 'System Online • Available for work' : 'Available for work'}
+                {isDark ? '• Available for work' : '• Available for work'}
               </span>
             </div>
 
             <h1 className={`text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 font-heading tracking-tight ${isDark ? 'text-white' : 'text-slate-900'}`}>
               Hi, I'm <br className="hidden lg:block" />
               <span className={`text-transparent bg-clip-text bg-gradient-to-r ${isDark
-                  ? 'from-indigo-400 via-purple-400 to-cyan-400 drop-shadow-[0_0_10px_rgba(139,92,246,0.5)]'
-                  : 'from-indigo-600 to-violet-600'
+                ? 'from-indigo-400 via-purple-400 to-cyan-400 drop-shadow-[0_0_10px_rgba(139,92,246,0.5)]'
+                : 'from-indigo-600 to-violet-600'
                 }`}>
                 {personalInfo.name}
               </span>
@@ -72,8 +72,8 @@ const HeroSection = ({ personalInfo, currentText, scrollToSection, isDark }) => 
               <button
                 onClick={() => scrollToSection('projects')}
                 className={`px-8 py-4 text-white rounded-full font-bold shadow-lg transition-all transform hover:-translate-y-1 ${isDark
-                    ? 'bg-indigo-600 hover:bg-indigo-500 hover:shadow-[0_0_20px_rgba(79,70,229,0.5)]'
-                    : 'bg-slate-900 hover:bg-slate-800 hover:shadow-xl'
+                  ? 'bg-indigo-600 hover:bg-indigo-500 hover:shadow-[0_0_20px_rgba(79,70,229,0.5)]'
+                  : 'bg-slate-900 hover:bg-slate-800 hover:shadow-xl'
                   }`}
               >
                 View My Work
@@ -81,8 +81,8 @@ const HeroSection = ({ personalInfo, currentText, scrollToSection, isDark }) => 
               <button
                 onClick={() => scrollToSection('contact')}
                 className={`px-8 py-4 rounded-full font-bold transition-all transform hover:-translate-y-1 ${isDark
-                    ? 'bg-transparent text-white border border-slate-700 hover:border-cyan-400 hover:text-cyan-400 hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] bg-slate-900/30 backdrop-blur-sm'
-                    : 'bg-white text-slate-900 border border-slate-200 shadow-sm hover:shadow-md hover:border-indigo-200'
+                  ? 'bg-transparent text-white border border-slate-700 hover:border-cyan-400 hover:text-cyan-400 hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] bg-slate-900/30 backdrop-blur-sm'
+                  : 'bg-white text-slate-900 border border-slate-200 shadow-sm hover:shadow-md hover:border-indigo-200'
                   }`}
               >
                 Contact Me
@@ -108,8 +108,8 @@ const HeroSection = ({ personalInfo, currentText, scrollToSection, isDark }) => 
               )}
 
               <div className={`relative w-full h-full overflow-hidden ${isDark
-                  ? 'rounded-full border-2 border-slate-700 shadow-[0_0_50px_rgba(79,70,229,0.3)] bg-slate-900'
-                  : 'rounded-[2rem] border-4 border-white shadow-2xl bg-white'
+                ? 'rounded-full border-2 border-slate-700 shadow-[0_0_50px_rgba(79,70,229,0.3)] bg-slate-900'
+                : 'rounded-[2rem] border-4 border-white shadow-2xl bg-white'
                 }`}>
                 {profileImg ? (
                   <>

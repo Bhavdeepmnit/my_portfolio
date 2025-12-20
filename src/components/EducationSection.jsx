@@ -9,8 +9,8 @@ const EducationSection = ({ isDark }) => (
           My <span className={`text-transparent bg-clip-text bg-gradient-to-r ${isDark ? 'from-purple-400 to-indigo-400' : 'from-indigo-600 to-indigo-600'}`}>Education</span>
         </h2>
         <div className={`mx-auto rounded-full ${isDark
-            ? 'w-24 h-1 bg-gradient-to-r from-purple-500 to-indigo-500 shadow-[0_0_15px_rgba(168,85,247,0.5)]'
-            : 'w-20 h-1.5 bg-indigo-600 opacity-80'
+          ? 'w-24 h-1 bg-gradient-to-r from-purple-500 to-indigo-500 shadow-[0_0_15px_rgba(168,85,247,0.5)]'
+          : 'w-20 h-1.5 bg-indigo-600 opacity-80'
           }`}></div>
       </div>
 
@@ -21,12 +21,12 @@ const EducationSection = ({ isDark }) => (
           {/* Education Item 1 */}
           <div className="relative group">
             <span className={`absolute -left-[41px] md:-left-[59px] top-2 w-6 h-6 rounded-full border-4 shadow-md transition-all duration-300 ${isDark
-                ? 'bg-slate-950 border-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.5)] group-hover:bg-indigo-500 group-hover:scale-125'
-                : 'bg-indigo-600 border-white'
+              ? 'bg-slate-950 border-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.5)] group-hover:bg-indigo-500 group-hover:scale-125'
+              : 'bg-indigo-600 border-white'
               }`}></span>
             <div className={`p-8 rounded-2xl border transition-all duration-300 hover:-translate-y-1 ${isDark
-                ? 'bg-slate-900/40 backdrop-blur-sm border-white/5 hover:border-indigo-500/40 hover:shadow-[0_0_30px_rgba(79,70,229,0.15)]'
-                : 'bg-white border-slate-100 hover:border-indigo-100 hover:shadow-md'
+              ? 'bg-slate-900/40 backdrop-blur-sm border-white/5 hover:border-indigo-500/40 hover:shadow-[0_0_30px_rgba(79,70,229,0.15)]'
+              : 'bg-white border-slate-100 hover:border-indigo-100 hover:shadow-md'
               }`}>
               <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                 <div>
@@ -40,14 +40,14 @@ const EducationSection = ({ isDark }) => (
                 </div>
                 <div className="mt-2 md:mt-0 flex items-center gap-2">
                   <span className={`px-3 py-1 border rounded-full text-xs font-bold ${isDark
-                      ? 'bg-indigo-500/10 text-indigo-300 border-indigo-500/20 shadow-[0_0_10px_rgba(99,102,241,0.1)]'
-                      : 'bg-indigo-50 text-indigo-700 border-indigo-100'
+                    ? 'bg-indigo-500/10 text-indigo-300 border-indigo-500/20 shadow-[0_0_10px_rgba(99,102,241,0.1)]'
+                    : 'bg-indigo-50 text-indigo-700 border-indigo-100'
                     }`}>2022 - 2026</span>
                 </div>
               </div>
               <div className={`mt-4 pt-4 border-t ${isDark ? 'border-white/5' : 'border-slate-50'}`}>
                 <span className={`font-bold ${isDark ? 'text-slate-400' : 'text-slate-700'}`}>CGPA:</span>
-                <span className={`ml-2 ${isDark ? 'text-white' : 'text-slate-600'}`}>6.24/10</span>
+                <span className={`ml-2 ${isDark ? 'text-white' : 'text-slate-600'}`}>6.36/10</span>
               </div>
             </div>
           </div>
@@ -55,12 +55,12 @@ const EducationSection = ({ isDark }) => (
           {/* Education Item 2 */}
           <div className="relative group">
             <span className={`absolute -left-[41px] md:-left-[59px] top-2 w-6 h-6 rounded-full border-4 shadow-md transition-all duration-300 ${isDark
-                ? 'bg-slate-950 border-purple-500 shadow-[0_0_10px_rgba(168,85,247,0.5)] group-hover:bg-purple-500 group-hover:scale-125'
-                : 'bg-indigo-400 border-white'
+              ? 'bg-slate-950 border-purple-500 shadow-[0_0_10px_rgba(168,85,247,0.5)] group-hover:bg-purple-500 group-hover:scale-125'
+              : 'bg-indigo-400 border-white'
               }`}></span>
             <div className={`p-8 rounded-2xl border transition-all duration-300 hover:-translate-y-1 ${isDark
-                ? 'bg-slate-900/40 backdrop-blur-sm border-white/5 hover:border-purple-500/40 hover:shadow-[0_0_30px_rgba(168,85,247,0.15)]'
-                : 'bg-white border-slate-100 hover:border-indigo-100 hover:shadow-md'
+              ? 'bg-slate-900/40 backdrop-blur-sm border-white/5 hover:border-purple-500/40 hover:shadow-[0_0_30px_rgba(168,85,247,0.15)]'
+              : 'bg-white border-slate-100 hover:border-indigo-100 hover:shadow-md'
               }`}>
               <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                 <div>
@@ -84,12 +84,12 @@ const EducationSection = ({ isDark }) => (
           {/* Education Item 3 */}
           <div className="relative group">
             <span className={`absolute -left-[41px] md:-left-[59px] top-2 w-6 h-6 rounded-full border-4 shadow-md transition-all duration-300 ${isDark
-                ? 'bg-slate-950 border-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.5)] group-hover:bg-cyan-500 group-hover:scale-125'
-                : 'bg-slate-300 border-white'
+              ? 'bg-slate-950 border-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.5)] group-hover:bg-cyan-500 group-hover:scale-125'
+              : 'bg-slate-300 border-white'
               }`}></span>
             <div className={`p-8 rounded-2xl border transition-all duration-300 hover:-translate-y-1 ${isDark
-                ? 'bg-slate-900/40 backdrop-blur-sm border-white/5 hover:border-cyan-500/40 hover:shadow-[0_0_30px_rgba(34,211,238,0.15)]'
-                : 'bg-white border-slate-100 hover:border-indigo-100 hover:shadow-md'
+              ? 'bg-slate-900/40 backdrop-blur-sm border-white/5 hover:border-cyan-500/40 hover:shadow-[0_0_30px_rgba(34,211,238,0.15)]'
+              : 'bg-white border-slate-100 hover:border-indigo-100 hover:shadow-md'
               }`}>
               <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                 <div>
