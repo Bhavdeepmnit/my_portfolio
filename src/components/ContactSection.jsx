@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import githubIcon from '../assets/github.svg';
 import linkedinIcon from '../assets/linkedin-icon.svg';
+
+// EmailJS credentials — fill these in after setting up at https://emailjs.com
+const EMAILJS_SERVICE_ID = 'service_2iebo54';
+const EMAILJS_TEMPLATE_ID = 'template_khf20ta';
+const EMAILJS_PUBLIC_KEY = 'C-RtV0rZuLnGy-vZe';
 
 const ContactSection = ({ personalInfo, isDark }) => {
   const [formData, setFormData] = useState({
@@ -78,69 +84,46 @@ const ContactSection = ({ personalInfo, isDark }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate form
     if (!validateForm()) {
       return;
     }
 
-    // Set loading state
-    setFormStatus({
-      loading: true,
-      success: false,
-      error: false,
-      message: ''
-    });
+    setFormStatus({ loading: true, success: false, error: false, message: '' });
 
     try {
-      const response = await fetch('http://localhost:5000/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_name: 'Bhavdeep',
+          reply_to: formData.email,
         },
-        body: JSON.stringify(formData)
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      );
+
+      setFormStatus({
+        loading: false,
+        success: true,
+        error: false,
+        message: "Your message has been sent successfully! I'll get back to you soon."
       });
 
-      const data = await response.json();
+      setFormData({ name: '', email: '', message: '' });
 
-      if (response.ok && data.success) {
-        setFormStatus({
-          loading: false,
-          success: true,
-          error: false,
-          message: data.message
-        });
+      setTimeout(() => {
+        setFormStatus({ loading: false, success: false, error: false, message: '' });
+      }, 5000);
 
-        // Reset form
-        setFormData({
-          name: '',
-          email: '',
-          message: ''
-        });
-
-        // Clear success message after 5 seconds
-        setTimeout(() => {
-          setFormStatus({
-            loading: false,
-            success: false,
-            error: false,
-            message: ''
-          });
-        }, 5000);
-      } else {
-        setFormStatus({
-          loading: false,
-          success: false,
-          error: true,
-          message: data.message || 'Failed to send message. Please try again.'
-        });
-      }
     } catch (error) {
-      console.error('Error sending message:', error);
+      console.error('EmailJS error:', error);
       setFormStatus({
         loading: false,
         success: false,
         error: true,
-        message: 'Could not connect to server. Please make sure the backend is running or try again later.'
+        message: 'Failed to send message. Please try again or email me directly.'
       });
     }
   };

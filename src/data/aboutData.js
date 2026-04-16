@@ -1,5 +1,5 @@
 export const aboutMeParagraphs = [
-  "Tech enthusiast and aspiring software engineer pursuing B.Tech in CSE at MNIT Jaipur (2022–2026). I’ve built scalable fintech apps as an SDE intern at Bluestock Fintech, with hands-on experience in full-stack development (MERN), Python automation, and computer vision projects With 400+ LeetCode problems solved, a Flipkart Grid finalist title, and a top 0.5% JEE Mains rank (AIR 8279), I combine strong problem-solving with leadership roles—currently serving as State Convener, Think India Jaipur Prant."
+  "Tech enthusiast and CS engineer pursuing B.Tech at MNIT Jaipur (2022–2026). Currently a Deep Learning Intern at Drivomate, building real-time ADAS systems—front collision warning, lane detection with SegFormer, and edge deployment on NVIDIA Jetson. I also have full-stack experience (MERN) from my SDE internship at Bluestock Fintech, and 400+ LeetCode problems solved. With a top 0.5% JEE Mains rank (AIR 8279) and leadership roles as State Convener at Think India Jaipur Prant and Advisor to VP at SPHINX fest, I bring both technical depth and collaborative drive."
 ];
 
 export const socialLinks = [

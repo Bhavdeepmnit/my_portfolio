@@ -19,18 +19,6 @@ import { experiences } from './data/experiences';
 import { projects } from './data/projects';
 import { typingTexts } from './data/constants';
 
-// Short subtle "tick" sound in base64
-const hoverSoundUrl = "data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU"; // Placeholder, will use a real one or logic to generate one. 
-// Actually, let's use a real, verifyinly working small click sound.
-// Using a simple short beep generated via script or a known safe short base64. 
-// I will use a very short, base64 encoded 'pop' sound. 
-const HOVER_AUDIO = "data:audio/wav;base64,UklGRigAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAEA//8BAAAAAAAA"; // This is empty.
-
-// Let's use a real base64 for a short pop.
-const POP_SOUND = "data:audio/wav;base64,UklGRjIAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YRAAAACAAAAAgAAAAIAAAACAAAAA"; // Still too simple.
-
-// Properly encoded short click (placeholder for brevity in thought, implementation below will have real data or AudioContext)
-// Better approach: AudioContext oscillator for a "futuristic" beep.
 const playHoverSound = () => {
   const AudioContext = window.AudioContext || window.webkitAudioContext;
   if (!AudioContext) return;

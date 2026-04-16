@@ -87,7 +87,7 @@ const EducationSection = ({ isDark }) => (
                 <div>
                   <h3 className={`text-xl font-bold mb-1 transition-colors ${isDark ? 'text-white group-hover:text-cyan-300' : 'text-slate-900 group-hover:text-indigo-600'
                     }`}>Matriculation</h3>
-                  <p className="text-slate-500 text-sm mt-1">R.E.D. Sr. Sec. Chhuchhakwas, Haryana</p>
+                  <p className="text-slate-500 text-sm mt-1">R.E.D. Sr. Sec. School, Chhuchhakwas, Haryana</p>
                 </div>
                 <div className="mt-2 md:mt-0">
                   <span className={`px-3 py-1 rounded-full text-xs font-bold ${isDark ? 'bg-cyan-500/10 text-cyan-300 border border-cyan-500/20' : 'bg-slate-100 text-slate-600 border border-slate-200'

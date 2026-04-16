@@ -1,9 +1,9 @@
 export const experiences = [
     {
-        title: "Machine Learning Intern",
+        title: "Deep Learning Intern – Computer Vision, ADAS",
         company: "Drivomate",
         period: "May 2025 - Present",
-        description: "At Drivomate (May 2025–July 2025), I’m building an AI-powered route forecasting system for public transport optimization, which was recognized by NASSCOM under the Top 15 startups in India. I developed a time-series forecasting pipeline in Python, exposed it via Flask APIs, and integrated it with a real-time dashboard built in Next.js. I also collaborate on deployment and scaling strategies with senior engineers."
+        description: "Built a real-time front collision warning system using object detection and ROI-based distance estimation, achieving 20–25 FPS on edge devices. Developed ADAS perception pipelines using deep learning models for real-time object detection and scene understanding. Implemented lane detection using SegFormer (semantic segmentation), improving robustness under low-visibility conditions. Optimized deep learning models for NVIDIA Jetson, enabling efficient edge inference with low compute overhead. Designed end-to-end ML pipeline from preprocessing to deployment, ensuring stability in real-world driving scenarios."
     },
     {
         title: "Software Engineering Intern",
@@ -12,9 +12,9 @@ export const experiences = [
         description: "At Bluestock Fintech (Aug–Sep 2024), I led a team of five in developing a full-stack fintech platform using React, Node.js, and MongoDB. I implemented Google OAuth-based authentication, built secure RESTful APIs, and optimized backend performance—reducing API response times by 25%. This role enhanced my leadership, full-stack development, and agile collaboration skills through mentorship and product-driven decision-making."
     },
     {
-        title: "Advisor to VP",
-        company: "Science & Technology Society, MNIT",
-        period: "2023 - Present",
-        description: "Led the organization of Rajasthan’s largest techno-management fest, contributing to event planning, marketing strategy, and on-ground execution. Collaborated across teams to drive outreach, sponsorship, and seamless event coordination."
+        title: "Advisor to Vice-President",
+        company: "SPHINX – Rajasthan’s Largest Techno-Management Fest, MNIT",
+        period: "2025 - Present",
+        description: "Managed sponsorship, artist relations, and event execution for Rajasthan’s largest techno-management fest. Collaborated across teams to drive outreach, marketing strategy, and seamless on-ground coordination."
     }
 ];

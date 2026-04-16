@@ -29,6 +29,7 @@ const skillIcons = {
   'AWS': awsIcon, 'Docker': dockerIcon, 'OpenCV': opencvIcon, 'TensorFlow': tensorflowIcon,
   'CSS': cssIcon, 'HTML': htmlIcon, 'Git': gitIcon, 'GitHub': githubIcon, 'Linux': linuxIcon,
   'VS Code': vscodeIcon, 'Postman': postmanIcon, 'Azure': azureIcon, 'Scikit-learn': scikitIcon,
+  'PyTorch': tensorflowIcon, 'Pandas': pythonIcon, 'NumPy': pythonIcon,
   'PyAutoGUI': pyautoguiIcon, 'Google Colab': colabIcon, 'Jupyter Notebook': jupyterIcon,
   'REST APIs': postmanIcon, 'Data Structures & Algorithms': jsIcon, 'OOP': jsIcon,
   'Operating Systems': linuxIcon, 'DBMS': sqlIcon, 'Leadership': githubIcon,
