@@ -1,6 +1,6 @@
 export const typingTexts = [
-    "Full Stack Developer",
-    "AI/ML Enthusiast",
-    "Competitive Programmer",
-    "Problem Solver"
+  "Deep Learning Intern @ Drivomate",
+  "Computer Vision & ADAS Engineer",
+  "Full-Stack Developer (MERN)",
+  "Systems & Performance Enthusiast"
 ];

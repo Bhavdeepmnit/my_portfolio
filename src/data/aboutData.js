@@ -1,5 +1,6 @@
 export const aboutMeParagraphs = [
-  "Tech enthusiast and CS engineer pursuing B.Tech at MNIT Jaipur (2022–2026). Currently a Deep Learning Intern at Drivomate, building real-time ADAS systems—front collision warning, lane detection with SegFormer, and edge deployment on NVIDIA Jetson. I also have full-stack experience (MERN) from my SDE internship at Bluestock Fintech, and 400+ LeetCode problems solved. With a top 0.5% JEE Mains rank (AIR 8279) and leadership roles as State Convener at Think India Jaipur Prant and Advisor to VP at SPHINX fest, I bring both technical depth and collaborative drive."
+  "Computer Science Engineering student at MNIT Jaipur (2022–2026) and a Deep Learning Intern at Drivomate, working on real-time Computer Vision and ADAS. I build perception pipelines — front collision warning with ROI-based distance estimation, object detection running at 20–25 FPS on edge devices, and modular systems designed for low-latency, high-throughput workloads.",
+  "Outside of deep learning, I also ship full-stack products: MERN platforms with secure JWT auth, REST APIs, and scalable data models. I care about clean architecture, concurrency, and squeezing performance out of every layer — from memory-efficient data streams to thoughtful system design. I also serve as Advisor to the Vice-President of SPHINX (Rajasthan's largest techno-management fest) and State Convenor at Think India Jaipur Prant."
 ];
 
 export const socialLinks = [
@@ -13,4 +14,4 @@ export const socialLinks = [
     url: 'https://www.linkedin.com/in/bhavdeep5577/',
     className: 'flex items-center ',
   },
-]; 
+];

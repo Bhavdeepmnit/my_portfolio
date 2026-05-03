@@ -3,6 +3,31 @@
 :root {
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
+
+  /* Glass tokens — dark */
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-highlight: rgba(255, 255, 255, 0.25);
+  --glass-text: #f0f0ff;
+  --glass-text-muted: rgba(240, 240, 255, 0.72);
+  --glass-blur: 16px;
+
+  /* Gradient base */
+  --bg-grad-a: #1b0b3a;
+  --bg-grad-b: #2a1474;
+  --bg-grad-c: #0b4f6c;
+}
+
+:root[data-theme="light"] {
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --glass-highlight: rgba(255, 255, 255, 0.9);
+  --glass-text: #0f172a;
+  --glass-text-muted: rgba(15, 23, 42, 0.72);
+
+  --bg-grad-a: #e0e7ff;
+  --bg-grad-b: #c7d2fe;
+  --bg-grad-c: #a5f3fc;
 }
 
 @theme {
@@ -14,47 +39,260 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  min-height: 100%;
+}
+
 body {
   font-family: var(--font-body);
-  background-color: #020617;
-  /* Slate 950 - Deep Space */
-  color: #e2e8f0;
-  /* Slate 200 - Starlight */
+  color: var(--glass-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  background: #0a0620;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
+/* Aurora gradient background — fixed so glass blur always has color behind it */
+.aurora-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(1200px 800px at 15% 10%, rgba(139, 92, 246, 0.55), transparent 60%),
+    radial-gradient(1000px 700px at 85% 20%, rgba(56, 189, 248, 0.35), transparent 60%),
+    radial-gradient(900px 700px at 50% 90%, rgba(236, 72, 153, 0.32), transparent 60%),
+    linear-gradient(135deg, var(--bg-grad-a) 0%, var(--bg-grad-b) 45%, var(--bg-grad-c) 100%);
+  background-attachment: fixed;
+  animation: aurora-drift 24s ease-in-out infinite alternate;
+}
+
+:root[data-theme="light"] .aurora-bg {
+  background:
+    radial-gradient(1200px 800px at 15% 10%, rgba(167, 139, 250, 0.45), transparent 60%),
+    radial-gradient(1000px 700px at 85% 20%, rgba(56, 189, 248, 0.35), transparent 60%),
+    radial-gradient(900px 700px at 50% 90%, rgba(251, 113, 133, 0.28), transparent 60%),
+    linear-gradient(135deg, var(--bg-grad-a) 0%, var(--bg-grad-b) 50%, var(--bg-grad-c) 100%);
+}
+
+@keyframes aurora-drift {
+  0% { background-position: 0% 0%, 100% 0%, 50% 100%, 0 0; filter: hue-rotate(0deg); }
+  100% { background-position: 10% 5%, 90% 15%, 45% 85%, 0 0; filter: hue-rotate(25deg); }
+}
+
+/* Soft noise/grain overlay — pure SVG, inline */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.9'/></svg>");
+}
+
+/* ─────────── Glass utility classes ─────────── */
+.glass-card {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 0 var(--glass-highlight);
+  color: var(--glass-text);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.14);
+  -webkit-backdrop-filter: blur(20px) saturate(200%);
+  backdrop-filter: blur(20px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 18px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), inset 0 1px 0 0 rgba(255, 255, 255, 0.35);
+}
+
+.glass-navbar {
+  background: rgba(15, 8, 45, 0.35);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  backdrop-filter: blur(18px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+:root[data-theme="light"] .glass-navbar {
+  background: rgba(255, 255, 255, 0.55);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.glass-button {
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--glass-text);
+  transition: all 0.3s ease;
+}
+
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(167, 139, 250, 0.6);
+  box-shadow: 0 0 20px rgba(120, 80, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-radius: 9999px;
+  color: var(--glass-text);
+}
+
+.glow-text {
+  text-shadow: 0 0 12px rgba(167, 139, 250, 0.45);
+}
+
+/* ─────────── Scroll reveal ─────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px) scale(0.95);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Stagger children via CSS var set by JS */
+.reveal-child {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  transition-delay: var(--stagger-delay, 0ms);
+}
+
+.reveal.is-visible .reveal-child {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─────────── 3D tilt shell ─────────── */
+.tilt-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.25s ease-out;
+  will-change: transform;
+}
+
+.tilt-3d-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.25s ease-out;
+}
+
+.specular {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 0.25),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tilt-3d:hover .specular {
+  opacity: 1;
+}
+
+/* ─────────── Custom cursor ─────────── */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate3d(-50%, -50%, 0);
+  mix-blend-mode: screen;
+}
+
+.cursor-dot {
   width: 8px;
+  height: 8px;
+  background: #a78bfa;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(167, 139, 250, 0.9), 0 0 24px rgba(56, 189, 248, 0.5);
 }
 
-::-webkit-scrollbar-track {
-  background: #020617;
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(167, 139, 250, 0.6);
+  border-radius: 50%;
+  transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
 }
 
+.cursor-ring.is-hovering {
+  width: 56px;
+  height: 56px;
+  border-color: rgba(56, 189, 248, 0.9);
+  background: rgba(167, 139, 250, 0.06);
+}
+
+/* ─────────── Scrollbar ─────────── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.3); }
 ::-webkit-scrollbar-thumb {
-  background: #4f46e5;
+  background: linear-gradient(180deg, #8b5cf6, #38bdf8);
   border-radius: 4px;
 }
+::-webkit-scrollbar-thumb:hover { background: #a78bfa; }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #818cf8;
-}
-
-/* Highlighting */
 ::selection {
-  background: #22d3ee;
-  /* Cyan 400 */
-  color: #020617;
+  background: rgba(167, 139, 250, 0.45);
+  color: #fff;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
+}
+
+/* ─────────── Reduced motion ─────────── */
+@media (prefers-reduced-motion: reduce) {
+  .aurora-bg { animation: none; }
+  .reveal, .reveal-child {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .tilt-3d, .tilt-3d-inner { transition: none !important; transform: none !important; }
+  .cursor-dot, .cursor-ring { display: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ─────────── Mobile — disable heavy effects ─────────── */
+@media (max-width: 768px) {
+  .cursor-dot, .cursor-ring { display: none; }
+  .glass-card { -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+}
+
+/* Hide OS cursor when custom cursor is active (desktop only) */
+@media (hover: hover) and (pointer: fine) {
+  .custom-cursor-active,
+  .custom-cursor-active * {
+    cursor: none !important;
+  }
 }

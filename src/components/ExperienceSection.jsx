@@ -1,40 +1,65 @@
 import React from 'react';
+import Reveal from './Reveal';
 
-const ExperienceSection = ({ experiences, isDark }) => (
-  <section id="experience" className={`py-20 relative overflow-hidden ${isDark ? 'bg-slate-950' : 'bg-white'}`}>
+const ExperienceSection = ({ experiences }) => (
+  <section id="experience" className="py-24 relative">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div className="text-center mb-16">
-        <h2 className={`text-4xl md:text-5xl font-extrabold mb-4 font-heading tracking-tight ${isDark ? 'text-white' : 'text-slate-900'}`}>
-          Work <span className={`text-transparent bg-clip-text bg-gradient-to-r ${isDark ? 'from-cyan-400 to-purple-400' : 'from-indigo-600 to-indigo-600'}`}>Experience</span>
+      <Reveal className="text-center mb-14">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-4 font-heading tracking-tight text-white glow-text">
+          Work{' '}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-violet-300">
+            Experience
+          </span>
         </h2>
-        <div className={`mx-auto rounded-full ${isDark ? 'w-24 h-1 bg-gradient-to-r from-cyan-500 to-purple-500 shadow-[0_0_15px_rgba(34,211,238,0.5)]' : 'w-20 h-1.5 bg-indigo-600 opacity-80'
-          }`}></div>
-      </div>
+        <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-cyan-400 to-violet-400 shadow-[0_0_12px_rgba(56,189,248,0.55)]" />
+      </Reveal>
 
-      <div className="max-w-4xl mx-auto">
-        <div className="space-y-6">
-          {experiences.map((exp, index) => (
-            <div key={index} className={`p-8 rounded-2xl border transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group ${isDark
-                ? 'bg-slate-900/40 backdrop-blur-md border-white/5 hover:border-cyan-500/50 hover:shadow-[0_0_20px_rgba(34,211,238,0.1)]'
-                : 'bg-slate-50 border-slate-100 hover:border-indigo-100 transition-colors hover:shadow-lg'
-              }`}>
-              {isDark && <div className="absolute -right-20 -top-20 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl group-hover:bg-cyan-500/20 transition-all"></div>}
+      <div className="max-w-4xl mx-auto relative pl-8 md:pl-12 border-l border-white/15">
+        <Reveal className="space-y-8" stagger={150}>
+          {experiences.map((exp, i) => (
+            <div key={i} className="relative group">
+              <span className="absolute -left-[44px] md:-left-[58px] top-5 w-5 h-5 rounded-full bg-gradient-to-br from-cyan-400 to-violet-400 shadow-[0_0_14px_rgba(167,139,250,0.8)] ring-4 ring-[rgba(10,6,32,0.6)]" />
 
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4 gap-2 relative z-10">
-                <div>
-                  <h3 className={`text-xl font-bold transition-colors ${isDark ? 'text-white group-hover:text-cyan-300' : 'text-slate-900 group-hover:text-indigo-600'
-                    }`}>{exp.title}</h3>
-                  <p className={`font-medium tracking-wide ${isDark ? 'text-cyan-400' : 'text-indigo-600'}`}>{exp.company}</p>
+              <div className="glass-card p-6 md:p-8 border-l-2 border-l-cyan-400/60 transition-transform duration-300 hover:-translate-y-0.5">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4 gap-3">
+                  <div>
+                    <h3 className="text-lg md:text-xl font-bold text-white">{exp.title}</h3>
+                    {exp.subtitle && (
+                      <p className="text-sm text-slate-200/75 mt-0.5">{exp.subtitle}</p>
+                    )}
+                    <p className="font-semibold text-cyan-300 mt-1">
+                      {exp.company}
+                      {exp.location && (
+                        <span className="text-slate-300/70 font-normal">
+                          {' '}· {exp.location}
+                        </span>
+                      )}
+                    </p>
+                  </div>
+                  <span className="glass-pill px-3 py-1 text-xs font-semibold whitespace-nowrap">
+                    {exp.period}
+                  </span>
                 </div>
-                <span className={`px-4 py-1.5 text-sm font-semibold rounded-full border shadow-sm transition-all ${isDark
-                    ? 'bg-slate-800 text-slate-300 border-slate-700 group-hover:border-cyan-500/30 group-hover:text-cyan-200'
-                    : 'bg-white text-slate-600 border-slate-200'
-                  }`}>{exp.period}</span>
+
+                {exp.bullets ? (
+                  <ul className="space-y-2 mt-2">
+                    {exp.bullets.map((b, j) => (
+                      <li
+                        key={j}
+                        className="flex gap-3 text-sm md:text-base text-slate-100/85 leading-relaxed"
+                      >
+                        <span className="mt-[10px] w-1.5 h-1.5 rounded-full bg-gradient-to-br from-violet-300 to-cyan-300 flex-shrink-0 shadow-[0_0_6px_rgba(167,139,250,0.7)]" />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="leading-relaxed text-slate-100/85">{exp.description}</p>
+                )}
               </div>
-              <p className={`leading-relaxed relative z-10 ${isDark ? 'text-slate-400 font-light' : 'text-slate-600'}`}>{exp.description}</p>
             </div>
           ))}
-        </div>
+        </Reveal>
       </div>
     </div>
   </section>
