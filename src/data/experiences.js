@@ -1,17 +1,18 @@
 export const experiences = [
   {
-    title: "Software Engineer (Deep Learning Intern)",
-    subtitle: "Computer Vision, ADAS",
+    title: "Deep Learning Engineer Intern",
+    subtitle: "Computer Vision · ADAS · Full-Stack Systems",
     company: "Drivomate",
     location: "Jaipur, India",
     period: "May 2025 – Present",
     bullets: [
-      "Developed a front collision warning system using real-time object detection and ROI-based estimation, processing 20–25 FPS.",
-      "Optimized compute pipelines for edge deployment, reducing latency and improving throughput.",
-      "Designed data processing pipelines with optimized memory and compute usage for real-time workloads.",
-      "Integrated multiple modules into a unified system ensuring reliable real-time performance.",
-      "Designed modular system architecture enabling efficient integration of real-time components.",
-      "Handled high-frequency data streams using efficient algorithms with low-latency guarantees."
+      "Developed a real-time front collision warning system using object detection and ROI-based distance estimation, achieving 20–25 FPS on edge hardware.",
+      "Built end-to-end ADAS perception pipelines using deep learning models for real-time object detection, scene understanding, and driver alert generation.",
+      "Implemented lane detection using SegFormer (transformer-based semantic segmentation), improving robustness under low-visibility and adverse lighting conditions.",
+      "Reduced model inference latency by optimizing deep learning pipelines via ONNX export and quantization for real-time edge deployment.",
+      "Optimized deep learning models for NVIDIA Jetson using TensorRT, enabling efficient edge inference with reduced CUDA compute overhead.",
+      "Architected modular, microservice-style software design with scalable, concurrent data processing pipelines and efficient memory management.",
+      "Designed end-to-end ML pipelines covering data preprocessing, model training, and production deployment, ensuring stability in real-world driving scenarios."
     ]
   }
 ];

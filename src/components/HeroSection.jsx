@@ -31,9 +31,9 @@ const HeroSection = ({ personalInfo, currentText, scrollToSection }) => {
 
             <p className="text-base md:text-lg mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-body text-slate-200/90">
               {personalInfo.tagline} CS Engineering student at{' '}
-              <strong className="text-white">MNIT Jaipur</strong> and Deep Learning Intern at{' '}
+              <strong className="text-white">MNIT Jaipur</strong> and Deep Learning Engineer Intern at{' '}
               <span className="text-cyan-300 font-semibold">Drivomate</span> — shipping
-              real-time Computer Vision & ADAS perception for the edge.
+              real-time Computer Vision, ADAS perception & scalable full-stack systems.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
