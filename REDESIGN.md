@@ -24,3 +24,9 @@ This removes roughly 79% of the JS payload and 99% of the portrait payload. Real
 The repository still describes a student and Drivomate intern with an open-ended experience date. Verify these facts before replacing them. Two project code links point to the GitHub profile. Quantitative achievements and performance claims are existing source content and have not been independently verified. Project screenshots are not supplied, so project panels remain graphic previews.
 
 EmailJS delivery was not tested by sending a message. Hosting deployment must be verified separately after a successful GitHub push.
+
+## Light theme update
+
+The black theme has been replaced with a Claude-inspired light palette at the owner's request. Warm cream (#faf9f5), paper surfaces (#f0eee6 / #fffefb), charcoal (#292722), and terracotta (#a64f35) are centralized in CSS variables. Georgia serif headings and italic accents replace the previous display font; Inter remains for body/UI text. All mounted sections, pills, project preview bands, form fields, hover states, section navigation, and the skill sphere use theme-aware colors. No dark-mode toggle is present. Existing full-height layout and CSS 3D interactions remain.
+
+Reference direction: https://claude.com/ . This is an original portfolio adaptation, not an exact replica or use of proprietary Claude fonts/assets.

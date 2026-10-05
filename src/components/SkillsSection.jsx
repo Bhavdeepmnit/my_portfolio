@@ -10,14 +10,14 @@ const SkillsSection = ({ skills }) => {
     <section id="skills" className="py-24 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <Reveal className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 font-heading tracking-tight text-white glow-text">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 font-heading tracking-tight text-ink glow-text">
             Technical{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-300 to-neutral-300">
+            <span className="text-accent">
               Skills
             </span>
           </h2>
-          <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-neutral-400 to-neutral-400 shadow-[0_0_12px_rgba(165,165,165,0.55)]" />
-          <p className="text-neutral-200/70 mt-4 text-sm md:text-base">
+          <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-line to-line" />
+          <p className="text-ink mt-4 text-sm md:text-base">
             Move your pointer to rotate · hover an orb to focus
           </p>
         </Reveal>

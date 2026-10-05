@@ -96,32 +96,32 @@ const ContactSection = ({ personalInfo }) => {
   ];
 
   const inputCls =
-    'w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white placeholder-white/40 ' +
-    'outline-none focus:border-neutral-300 focus:ring-1 focus:ring-neutral-300 transition-all disabled:opacity-50 backdrop-blur-sm';
+    'w-full px-4 py-3 rounded-xl bg-surface border border-line text-ink placeholder-muted ' +
+    'outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all disabled:opacity-50 backdrop-blur-sm';
 
   return (
     <section id="contact" className="py-24 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="text-center mb-14">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 font-heading tracking-tight text-white glow-text">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 font-heading tracking-tight text-ink glow-text">
             Contact{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-300 to-neutral-300">
+            <span className="text-accent">
               Me
             </span>
           </h2>
-          <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-neutral-400 to-neutral-400 shadow-[0_0_12px_rgba(165,165,165,0.55)]" />
+          <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-line to-line" />
         </Reveal>
 
         <Reveal className="max-w-5xl mx-auto">
           <TiltCard><div className="glass-card grid md:grid-cols-2 overflow-hidden">
             {/* Info side */}
             <div className="p-8 md:p-12 relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-neutral-500/15 via-neutral-500/10 to-neutral-500/15 pointer-events-none" />
+              <div className="absolute inset-0 bg-surface pointer-events-none" />
               <div className="relative z-10">
-                <h3 className="text-2xl md:text-3xl font-bold mb-5 font-heading text-white">
+                <h3 className="text-2xl md:text-3xl font-bold mb-5 font-heading text-ink">
                   Get In Touch
                 </h3>
-                <p className="mb-8 leading-relaxed text-neutral-100/80">
+                <p className="mb-8 leading-relaxed text-ink">
                   I'm open to internships, collaborations and interesting problems in CV /
                   ADAS / full-stack. Say hi.
                 </p>
@@ -129,9 +129,9 @@ const ContactSection = ({ personalInfo }) => {
                 <div className="space-y-5">
                   {contactItems.map((item, i) => (
                     <div key={i} className="flex items-start gap-4 group">
-                      <div className="p-3 rounded-xl glass-pill border-neutral-300/30 group-hover:border-neutral-300/60">
+                      <div className="p-3 rounded-xl glass-pill border-line group-hover:border-line">
                         <svg
-                          className="w-5 h-5 text-neutral-200"
+                          className="w-5 h-5 text-ink"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -145,9 +145,9 @@ const ContactSection = ({ personalInfo }) => {
                         </svg>
                       </div>
                       <div>
-                        <h4 className="font-semibold text-white">{item.title}</h4>
-                        <p className="text-sm text-neutral-100/85">{item.value}</p>
-                        {item.sub && <p className="text-xs text-neutral-200/60">{item.sub}</p>}
+                        <h4 className="font-semibold text-ink">{item.title}</h4>
+                        <p className="text-sm text-ink">{item.value}</p>
+                        {item.sub && <p className="text-xs text-ink">{item.sub}</p>}
                       </div>
                     </div>
                   ))}
@@ -161,7 +161,7 @@ const ContactSection = ({ personalInfo }) => {
                     className="glass-button p-3 rounded-full"
                     aria-label="GitHub"
                   >
-                    <img src={githubIcon} alt="" className="w-5 h-5 invert opacity-90" />
+                    <img src={githubIcon} alt="" className="social-icon w-5 h-5 opacity-90" />
                   </a>
                   <a
                     href={personalInfo.linkedin}
@@ -170,17 +170,17 @@ const ContactSection = ({ personalInfo }) => {
                     className="glass-button p-3 rounded-full"
                     aria-label="LinkedIn"
                   >
-                    <img src={linkedinIcon} alt="" className="w-5 h-5 invert opacity-90" />
+                    <img src={linkedinIcon} alt="" className="social-icon w-5 h-5 opacity-90" />
                   </a>
                 </div>
               </div>
             </div>
 
             {/* Form side */}
-            <div className="p-8 md:p-12 border-t md:border-t-0 md:border-l border-white/10">
+            <div className="p-8 md:p-12 border-t md:border-t-0 md:border-l border-line">
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="contact-name" className="block text-sm font-medium mb-1.5 text-neutral-200">
+                  <label htmlFor="contact-name" className="block text-sm font-medium mb-1.5 text-ink">
                     Your Name
                   </label>
                   <input
@@ -195,7 +195,7 @@ const ContactSection = ({ personalInfo }) => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="contact-email" className="block text-sm font-medium mb-1.5 text-neutral-200">
+                  <label htmlFor="contact-email" className="block text-sm font-medium mb-1.5 text-ink">
                     Your Email
                   </label>
                   <input
@@ -210,7 +210,7 @@ const ContactSection = ({ personalInfo }) => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="contact-message" className="block text-sm font-medium mb-1.5 text-neutral-200">Message</label>
+                  <label htmlFor="contact-message" className="block text-sm font-medium mb-1.5 text-ink">Message</label>
                   <textarea
                     rows="4"
                     id="contact-message"
@@ -227,11 +227,7 @@ const ContactSection = ({ personalInfo }) => {
                   <div
                     role="status"
                     aria-live="polite"
-                    className={`p-3 rounded-xl text-sm font-medium border ${
-                      formStatus.success
-                        ? 'bg-neutral-500/10 text-neutral-200 border-neutral-400/30'
-                        : 'bg-neutral-500/10 text-neutral-200 border-neutral-400/30'
-                    }`}
+                    className="contact-status p-3 rounded-xl text-sm font-medium border"
                   >
                     {formStatus.message}
                   </div>

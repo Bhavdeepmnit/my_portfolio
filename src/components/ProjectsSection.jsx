@@ -6,13 +6,13 @@ const ProjectsSection = ({ projects }) => (
   <section id="projects" className="py-24 relative">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <Reveal className="text-center mb-14">
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-4 font-heading tracking-tight text-white glow-text">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-4 font-heading tracking-tight text-ink glow-text">
           Featured{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-300 to-neutral-300">
+          <span className="text-accent">
             Projects
           </span>
         </h2>
-        <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-neutral-400 to-neutral-400 shadow-[0_0_12px_rgba(113,113,113,0.55)]" />
+        <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-line to-line" />
       </Reveal>
 
       <Reveal className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" stagger={100}>
@@ -20,19 +20,19 @@ const ProjectsSection = ({ projects }) => (
           <TiltCard key={index} className="h-full">
             <div className="glass-card h-full flex flex-col overflow-hidden">
               {/* Preview band */}
-              <div className="h-36 relative overflow-hidden border-b border-white/10 bg-gradient-to-br from-neutral-600/20 via-neutral-500/10 to-neutral-500/20">
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:24px_24px] opacity-40" />
+              <div className="h-36 relative overflow-hidden border-b border-line bg-surface">
+                <div className="absolute inset-0 project-grid opacity-40" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="font-mono text-sm text-white/80 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-neutral-400 animate-pulse shadow-[0_0_8px_rgba(113,113,113,0.9)]" />
+                  <span className="font-mono text-sm text-ink flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-accent-soft animate-pulse" />
                     {project.title}
                   </span>
                 </div>
               </div>
 
               <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg md:text-xl font-bold mb-2 text-white">{project.title}</h3>
-                <p className="mb-4 text-sm leading-relaxed text-neutral-100/80 flex-grow">
+                <h3 className="text-lg md:text-xl font-bold mb-2 text-ink">{project.title}</h3>
+                <p className="mb-4 text-sm leading-relaxed text-ink flex-grow">
                   {project.description}
                 </p>
 
@@ -40,7 +40,7 @@ const ProjectsSection = ({ projects }) => (
                   {project.technologies.map((tech, t) => (
                     <span
                       key={t}
-                      className="glass-pill text-[11px] px-2.5 py-0.5 font-medium text-neutral-100/90"
+                      className="glass-pill text-[11px] px-2.5 py-0.5 font-medium text-ink"
                     >
                       {tech}
                     </span>

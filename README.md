@@ -1,6 +1,6 @@
-# Bhavdeep ? Portfolio
+# Bhavdeep - Portfolio
 
-React 19 + Vite portfolio with a monochrome, full-screen section layout and CSS 3D card interactions.
+React 19 + Vite portfolio with a Claude-inspired light theme, full-screen section layout and CSS 3D card interactions.
 
 ## Run locally
 
@@ -27,6 +27,8 @@ The production output is `dist/`. Run commands from this repository root, which 
 - `src/assets/profile.webp` is the optimized hero portrait. The source photograph is retained.
 
 ## Design
+
+The current theme is light only: warm cream canvas, paper surfaces, charcoal text, terracotta accents, Georgia serif display headings, and Inter UI text. Semantic CSS variables and Tailwind color tokens keep all sections consistent. No theme toggle is included. System serif headings avoid an additional font download.
 
 Eight numbered sections: Home, About, Education, Skills, Experience, Projects, Achievements, and Contact. Sections occupy at least the viewport height and expand for long content. Navigation uses a compact header, section rail on larger screens, and an expandable menu. Cards use pointer-driven perspective, depth, and a soft highlight. Touch devices and reduced-motion preferences disable tilt. Skills use a CSS sphere on desktop and a grid on touch devices.
 

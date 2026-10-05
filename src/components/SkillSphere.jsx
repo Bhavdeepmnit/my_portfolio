@@ -136,14 +136,14 @@ const SkillSphere = ({ skills, radius = 180 }) => {
                 className="glass-pill px-3 py-1.5 text-[12px] sm:text-sm font-semibold whitespace-nowrap transition-all duration-300 group-hover:scale-125"
                 style={{
                   opacity: 0.55 + ((p.z + radius) / (radius * 2)) * 0.45,
-                  boxShadow: `0 0 ${8 + level / 6}px rgba(153,153,153,${0.2 + level / 300})`,
+                  boxShadow: 'var(--shadow)',
                 }}
                 title={`${s.name} — ${level}%`}
               >
                 <span
                   className="inline-block w-1.5 h-1.5 rounded-full mr-2 align-middle"
                   style={{
-                    background: `conic-gradient(#e5e5e5 ${level * 3.6}deg, rgba(255,255,255,0.15) 0)`,
+                    background: `conic-gradient(var(--accent) ${level * 3.6}deg, var(--line) 0)`,
                   }}
                 />
                 {s.name}
