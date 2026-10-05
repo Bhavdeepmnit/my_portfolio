@@ -16,3 +16,4 @@ export const socialLinks = [
     className: 'flex items-center ',
   },
 ];
+
