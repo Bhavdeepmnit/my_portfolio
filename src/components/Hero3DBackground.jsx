@@ -44,28 +44,28 @@ function Scene() {
       <FloatingShape
         geometry={<icosahedronGeometry args={[1.2, 1]} />}
         position={[-2.8, 0.6, 0]}
-        color="#a78bfa"
+        color="#e5e5e5"
         speed={0.25}
         mouse={mouse}
       />
       <FloatingShape
         geometry={<torusGeometry args={[1, 0.3, 12, 48]} />}
         position={[2.6, -0.4, -1]}
-        color="#38bdf8"
+        color="#d4d4d4"
         speed={0.35}
         mouse={mouse}
       />
       <FloatingShape
         geometry={<sphereGeometry args={[0.8, 18, 18]} />}
         position={[0.5, 1.8, -2]}
-        color="#f472b6"
+        color="#a3a3a3"
         speed={0.2}
         mouse={mouse}
       />
       <FloatingShape
         geometry={<octahedronGeometry args={[0.7, 0]} />}
         position={[-1.2, -1.6, -1.5]}
-        color="#a78bfa"
+        color="#e5e5e5"
         speed={0.4}
         mouse={mouse}
       />

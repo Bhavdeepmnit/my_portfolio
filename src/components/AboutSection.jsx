@@ -1,3 +1,4 @@
+import TiltCard from './TiltCard';
 import React from 'react';
 import { aboutMeParagraphs, socialLinks } from '../data/aboutData';
 import Reveal from './Reveal';
@@ -8,17 +9,17 @@ const AboutSection = () => (
       <Reveal className="text-center mb-14">
         <h2 className="text-4xl md:text-5xl font-extrabold mb-4 font-heading tracking-tight text-white glow-text">
           About{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-300 to-cyan-300">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-300 to-neutral-300">
             Me
           </span>
         </h2>
-        <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-violet-400 to-cyan-400 shadow-[0_0_12px_rgba(167,139,250,0.6)]" />
+        <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-neutral-400 to-neutral-400 shadow-[0_0_12px_rgba(153,153,153,0.6)]" />
       </Reveal>
 
       <Reveal className="max-w-3xl mx-auto">
-        <div className="glass-card p-8 md:p-12">
+        <TiltCard surfaceClassName="glass-card p-8 md:p-12">
           {aboutMeParagraphs.map((text, idx) => (
-            <p key={idx} className="text-base md:text-lg mb-5 leading-8 text-slate-100/90">
+            <p key={idx} className="text-base md:text-lg mb-5 leading-8 text-neutral-100/90">
               {text}
             </p>
           ))}
@@ -36,7 +37,7 @@ const AboutSection = () => (
               </a>
             ))}
           </div>
-        </div>
+        </TiltCard>
       </Reveal>
     </div>
   </section>

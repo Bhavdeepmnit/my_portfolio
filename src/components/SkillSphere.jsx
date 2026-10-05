@@ -60,7 +60,15 @@ const SkillSphere = ({ skills, radius = 180 }) => {
     wrap.addEventListener('mouseenter', onEnter);
     wrap.addEventListener('mouseleave', onLeave);
 
+    let visible = false;
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      cancelAnimationFrame(rafRef.current);
+      if (visible) rafRef.current = requestAnimationFrame(tick);
+    });
+
     const tick = () => {
+      if (!visible) return;
       if (!hovering.current) target.current.y += 0.25;
       rot.current.x += (target.current.x - rot.current.x) * 0.08;
       rot.current.y += (target.current.y - rot.current.y) * 0.08;
@@ -69,9 +77,10 @@ const SkillSphere = ({ skills, radius = 180 }) => {
       }
       rafRef.current = requestAnimationFrame(tick);
     };
-    rafRef.current = requestAnimationFrame(tick);
+    observer.observe(wrap);
 
     return () => {
+      observer.disconnect();
       cancelAnimationFrame(rafRef.current);
       wrap.removeEventListener('mousemove', onMove);
       wrap.removeEventListener('mouseenter', onEnter);
@@ -127,14 +136,14 @@ const SkillSphere = ({ skills, radius = 180 }) => {
                 className="glass-pill px-3 py-1.5 text-[12px] sm:text-sm font-semibold whitespace-nowrap transition-all duration-300 group-hover:scale-125"
                 style={{
                   opacity: 0.55 + ((p.z + radius) / (radius * 2)) * 0.45,
-                  boxShadow: `0 0 ${8 + level / 6}px rgba(167,139,250,${0.2 + level / 300})`,
+                  boxShadow: `0 0 ${8 + level / 6}px rgba(153,153,153,${0.2 + level / 300})`,
                 }}
                 title={`${s.name} — ${level}%`}
               >
                 <span
                   className="inline-block w-1.5 h-1.5 rounded-full mr-2 align-middle"
                   style={{
-                    background: `conic-gradient(#a78bfa ${level * 3.6}deg, rgba(255,255,255,0.15) 0)`,
+                    background: `conic-gradient(#e5e5e5 ${level * 3.6}deg, rgba(255,255,255,0.15) 0)`,
                   }}
                 />
                 {s.name}

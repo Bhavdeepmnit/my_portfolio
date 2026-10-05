@@ -1,11 +1,14 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 
-const TiltCard = ({ children, className = '', max = 10, scale = 1.02 }) => {
+const TiltCard = ({ children, className = '', surfaceClassName = '', max = 10, scale = 1.02 }) => {
   const wrapRef = useRef(null);
   const innerRef = useRef(null);
   const rafRef = useRef(null);
 
+  useEffect(() => () => cancelAnimationFrame(rafRef.current), []);
+
   const onMove = (e) => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce), (hover: none)').matches) return;
     const el = wrapRef.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
@@ -38,7 +41,7 @@ const TiltCard = ({ children, className = '', max = 10, scale = 1.02 }) => {
       onMouseMove={onMove}
       onMouseLeave={onLeave}
     >
-      <div ref={innerRef} className="tilt-3d-inner h-full">
+      <div ref={innerRef} className={`tilt-3d-inner h-full ${surfaceClassName}`}>
         {children}
       </div>
       <span className="specular" aria-hidden="true" />

@@ -1,3 +1,4 @@
+import TiltCard from './TiltCard';
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import githubIcon from '../assets/github.svg';
@@ -96,7 +97,7 @@ const ContactSection = ({ personalInfo }) => {
 
   const inputCls =
     'w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white placeholder-white/40 ' +
-    'outline-none focus:border-cyan-300 focus:ring-1 focus:ring-cyan-300 transition-all disabled:opacity-50 backdrop-blur-sm';
+    'outline-none focus:border-neutral-300 focus:ring-1 focus:ring-neutral-300 transition-all disabled:opacity-50 backdrop-blur-sm';
 
   return (
     <section id="contact" className="py-24 relative">
@@ -104,23 +105,23 @@ const ContactSection = ({ personalInfo }) => {
         <Reveal className="text-center mb-14">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4 font-heading tracking-tight text-white glow-text">
             Contact{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-violet-300">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-300 to-neutral-300">
               Me
             </span>
           </h2>
-          <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-cyan-400 to-violet-400 shadow-[0_0_12px_rgba(56,189,248,0.55)]" />
+          <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-neutral-400 to-neutral-400 shadow-[0_0_12px_rgba(165,165,165,0.55)]" />
         </Reveal>
 
         <Reveal className="max-w-5xl mx-auto">
-          <div className="glass-card grid md:grid-cols-2 overflow-hidden">
+          <TiltCard><div className="glass-card grid md:grid-cols-2 overflow-hidden">
             {/* Info side */}
             <div className="p-8 md:p-12 relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-violet-500/15 via-fuchsia-500/10 to-cyan-500/15 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-br from-neutral-500/15 via-neutral-500/10 to-neutral-500/15 pointer-events-none" />
               <div className="relative z-10">
                 <h3 className="text-2xl md:text-3xl font-bold mb-5 font-heading text-white">
                   Get In Touch
                 </h3>
-                <p className="mb-8 leading-relaxed text-slate-100/80">
+                <p className="mb-8 leading-relaxed text-neutral-100/80">
                   I'm open to internships, collaborations and interesting problems in CV /
                   ADAS / full-stack. Say hi.
                 </p>
@@ -128,9 +129,9 @@ const ContactSection = ({ personalInfo }) => {
                 <div className="space-y-5">
                   {contactItems.map((item, i) => (
                     <div key={i} className="flex items-start gap-4 group">
-                      <div className="p-3 rounded-xl glass-pill border-cyan-300/30 group-hover:border-cyan-300/60">
+                      <div className="p-3 rounded-xl glass-pill border-neutral-300/30 group-hover:border-neutral-300/60">
                         <svg
-                          className="w-5 h-5 text-cyan-200"
+                          className="w-5 h-5 text-neutral-200"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -145,8 +146,8 @@ const ContactSection = ({ personalInfo }) => {
                       </div>
                       <div>
                         <h4 className="font-semibold text-white">{item.title}</h4>
-                        <p className="text-sm text-slate-100/85">{item.value}</p>
-                        {item.sub && <p className="text-xs text-slate-200/60">{item.sub}</p>}
+                        <p className="text-sm text-neutral-100/85">{item.value}</p>
+                        {item.sub && <p className="text-xs text-neutral-200/60">{item.sub}</p>}
                       </div>
                     </div>
                   ))}
@@ -179,11 +180,12 @@ const ContactSection = ({ personalInfo }) => {
             <div className="p-8 md:p-12 border-t md:border-t-0 md:border-l border-white/10">
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium mb-1.5 text-cyan-200">
+                  <label htmlFor="contact-name" className="block text-sm font-medium mb-1.5 text-neutral-200">
                     Your Name
                   </label>
                   <input
                     type="text"
+                    id="contact-name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
@@ -193,11 +195,12 @@ const ContactSection = ({ personalInfo }) => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-1.5 text-cyan-200">
+                  <label htmlFor="contact-email" className="block text-sm font-medium mb-1.5 text-neutral-200">
                     Your Email
                   </label>
                   <input
                     type="email"
+                    id="contact-email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
@@ -207,9 +210,10 @@ const ContactSection = ({ personalInfo }) => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-1.5 text-cyan-200">Message</label>
+                  <label htmlFor="contact-message" className="block text-sm font-medium mb-1.5 text-neutral-200">Message</label>
                   <textarea
                     rows="4"
+                    id="contact-message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
@@ -221,10 +225,12 @@ const ContactSection = ({ personalInfo }) => {
 
                 {formStatus.message && (
                   <div
+                    role="status"
+                    aria-live="polite"
                     className={`p-3 rounded-xl text-sm font-medium border ${
                       formStatus.success
-                        ? 'bg-emerald-500/10 text-emerald-200 border-emerald-400/30'
-                        : 'bg-rose-500/10 text-rose-200 border-rose-400/30'
+                        ? 'bg-neutral-500/10 text-neutral-200 border-neutral-400/30'
+                        : 'bg-neutral-500/10 text-neutral-200 border-neutral-400/30'
                     }`}
                   >
                     {formStatus.message}
@@ -261,7 +267,7 @@ const ContactSection = ({ personalInfo }) => {
                 </button>
               </form>
             </div>
-          </div>
+          </div></TiltCard>
         </Reveal>
       </div>
     </section>

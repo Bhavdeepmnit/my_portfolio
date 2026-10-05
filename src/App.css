@@ -1,10 +1,1 @@
-@import "tailwindcss";
-
-/* Example: Add a CSS class for a background image using the correct path */
-.css-icon-bg {
-  background-image: url('../assets/css.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 40px;
-  height: 40px;
-}
+/* Section and theme styles are centralized in index.css. */

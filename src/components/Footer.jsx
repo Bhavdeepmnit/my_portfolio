@@ -5,12 +5,12 @@ const Footer = ({ personalInfo }) => (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div className="glass-card px-6 md:px-10 py-7 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="text-center md:text-left">
-          <p className="text-2xl font-bold font-heading mb-1 bg-clip-text text-transparent bg-gradient-to-r from-violet-300 via-fuchsia-300 to-cyan-300">
+          <p className="text-2xl font-bold font-heading mb-1 bg-clip-text text-transparent bg-gradient-to-r from-neutral-300 via-neutral-300 to-neutral-300">
             {personalInfo.name}
-            <span className="text-fuchsia-300">.</span>
+            <span className="text-neutral-300">.</span>
           </p>
-          <p className="text-xs text-slate-200/70">
-            © {new Date().getFullYear()} {personalInfo.name}. Built with React, Three.js & Tailwind.
+          <p className="text-xs text-neutral-200/70">
+            © {new Date().getFullYear()} {personalInfo.name}. Built with React & Tailwind.
           </p>
         </div>
 

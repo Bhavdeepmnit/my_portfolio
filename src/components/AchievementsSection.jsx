@@ -1,3 +1,4 @@
+import TiltCard from './TiltCard';
 import React from 'react';
 import Reveal from './Reveal';
 
@@ -34,22 +35,22 @@ const AchievementsSection = () => (
       <Reveal className="text-center mb-14">
         <h2 className="text-4xl md:text-5xl font-extrabold mb-4 font-heading tracking-tight text-white glow-text">
           Achievements &{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-300 to-fuchsia-300">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-300 to-neutral-300">
             Leadership
           </span>
         </h2>
-        <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-violet-400 to-fuchsia-400 shadow-[0_0_12px_rgba(167,139,250,0.55)]" />
+        <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-neutral-400 to-neutral-400 shadow-[0_0_12px_rgba(153,153,153,0.55)]" />
       </Reveal>
 
       <Reveal className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6" stagger={90}>
         {items.map((item, i) => (
-          <div
+          <TiltCard
             key={i}
-            className="glass-card p-6 md:p-8 transition-transform duration-300 hover:-translate-y-1"
+            surfaceClassName="glass-card p-6 md:p-8 transition-transform duration-300 hover:-translate-y-1"
           >
             <h3 className="text-lg md:text-xl font-bold mb-2 text-white">{item.title}</h3>
-            <p className="leading-relaxed text-slate-100/80 text-sm md:text-base">{item.text}</p>
-          </div>
+            <p className="leading-relaxed text-neutral-100/80 text-sm md:text-base">{item.text}</p>
+          </TiltCard>
         ))}
       </Reveal>
     </div>
