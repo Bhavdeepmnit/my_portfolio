@@ -1,5 +1,6 @@
 export const skills = [
   // Languages
+  { name: "Java", level: 85, category: "Languages" },
   { name: "Python", level: 90, category: "Languages" },
   { name: "C/C++", level: 90, category: "Languages" },
   { name: "JavaScript", level: 85, category: "Languages" },
@@ -15,6 +16,10 @@ export const skills = [
   { name: "Transfer Learning", level: 78, category: "ML/AI" },
 
   // Frameworks & Libraries
+  { name: "Spring Boot", level: 85, category: "Frameworks" },
+  { name: "Spring Data JPA", level: 82, category: "Frameworks" },
+  { name: "Spring Cloud Gateway", level: 78, category: "Frameworks" },
+  { name: "Next.js", level: 78, category: "Frameworks" },
   { name: "PyTorch", level: 85, category: "Frameworks" },
   { name: "OpenCV", level: 85, category: "Frameworks" },
   { name: "SegFormer", level: 78, category: "Frameworks" },
@@ -39,6 +44,9 @@ export const skills = [
 
   // Databases
   { name: "MongoDB", level: 82, category: "Databases" },
+  { name: "PostgreSQL", level: 85, category: "Databases" },
+  { name: "Redis", level: 78, category: "Databases" },
+  { name: "Supabase", level: 78, category: "Databases" },
 
   // Systems & Hardware
   { name: "NVIDIA Jetson", level: 75, category: "Systems" },
@@ -48,6 +56,7 @@ export const skills = [
   // DevOps & Tools
   { name: "Git", level: 85, category: "Tools" },
   { name: "Docker", level: 70, category: "Tools" },
+  { name: "Kafka", level: 78, category: "Tools" },
   { name: "AWS", level: 70, category: "Tools" },
   { name: "Linux", level: 78, category: "Tools" },
   { name: "Google Earth Engine", level: 72, category: "Tools" },

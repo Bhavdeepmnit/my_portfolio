@@ -1,7 +1,7 @@
 export const personalInfo = {
   name: "Bhavdeep",
-  title: "Deep Learning Engineer | Full-Stack Developer",
-  tagline: "Building real-time ADAS perception and scalable full-stack systems.",
+  title: "Software Engineer | Backend & Full-Stack Developer",
+  tagline: "Building secure backend services, distributed systems, and scalable full-stack applications.",
   email: "bhavdeep0609@gmail.com",
   phone: "+91-9050470760",
   location: "Jaipur, India",

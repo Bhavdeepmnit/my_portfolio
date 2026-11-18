@@ -1,18 +1,26 @@
 export const experiences = [
   {
-    title: "Deep Learning Engineer Intern",
-    subtitle: "Computer Vision · ADAS · Full-Stack Systems",
+    title: "Software Engineer",
+    subtitle: "Software Development Group",
+    company: "ICICI Bank",
+    location: "Mumbai, India",
+    period: "July 2026 – Present",
+    bullets: [
+      "Modernizing legacy applications by migrating business workflows to Java and Spring Boot backend services and reverse-engineering existing systems to map requirements, dependencies, and workflows.",
+      "Developing RESTful APIs, business logic, and service-layer components while defining API contracts, data models, and authorization mechanisms for secure service integration.",
+      "Leveraging multi-agent AI-DLC (AI-Driven Development Lifecycle) workflows for backend design, code generation, and automated validation."
+    ]
+  },
+  {
+    title: "Founding Member",
+    subtitle: "Full-Stack Systems & Real-Time Pipelines",
     company: "Drivomate",
     location: "Jaipur, India",
-    period: "May 2025 – Present",
+    period: "May 2025 – April 2026",
     bullets: [
-      "Developed a real-time front collision warning system using object detection and ROI-based distance estimation, achieving 20–25 FPS on edge hardware.",
-      "Built end-to-end ADAS perception pipelines using deep learning models for real-time object detection, scene understanding, and driver alert generation.",
-      "Implemented lane detection using SegFormer (transformer-based semantic segmentation), improving robustness under low-visibility and adverse lighting conditions.",
-      "Reduced model inference latency by optimizing deep learning pipelines via ONNX export and quantization for real-time edge deployment.",
-      "Optimized deep learning models for NVIDIA Jetson using TensorRT, enabling efficient edge inference with reduced CUDA compute overhead.",
-      "Architected modular, microservice-style software design with scalable, concurrent data processing pipelines and efficient memory management.",
-      "Designed end-to-end ML pipelines covering data preprocessing, model training, and production deployment, ensuring stability in real-world driving scenarios."
+      "Architected a real-time object detection pipeline running at 20–25 FPS for a production-grade ADAS system using a modular, microservice-style design.",
+      "Engineered low-latency compute pipelines for edge deployment and applied algorithmic optimizations to improve throughput.",
+      "Built concurrent, fault-tolerant data stream processing with efficient memory management, applying OOP and separation of concerns to ensure end-to-end system reliability."
     ]
   }
 ];

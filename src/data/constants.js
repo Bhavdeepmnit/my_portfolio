@@ -1,7 +1,7 @@
 export const typingTexts = [
-  "Deep Learning Engineer @ Drivomate",
-  "Computer Vision & ADAS Engineer",
+  "Software Engineer @ ICICI Bank",
+  "Java & Spring Boot Developer",
+  "Distributed Systems Engineer",
   "Full-Stack Developer (MERN)",
-  "Edge AI & Model Optimization",
-  "Systems & Performance Enthusiast"
+  "AI-DLC & Systems Enthusiast"
 ];

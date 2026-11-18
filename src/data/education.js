@@ -4,6 +4,7 @@ export const education = [
     institution: "Malaviya National Institute of Technology (MNIT), Jaipur",
     location: "Jaipur, India",
     period: "2022 – 2026",
+    score: "CGPA: 6.52/10",
     url: "https://mnit.ac.in",
     accent: "indigo"
   },

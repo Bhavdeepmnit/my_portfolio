@@ -1,5 +1,19 @@
 export const projects = [
   {
+    title: "StockFlow",
+    description:
+      "Distributed inventory management system with 5 Spring Boot microservices behind Spring Cloud Gateway and JWT authentication. Built an event-driven order saga with Kafka, transactional outbox, idempotent consumers, and dead-letter topics for reliable stock reservation and compensation.",
+    technologies: ["Java", "Spring Boot", "Spring Data JPA", "PostgreSQL", "Redis", "Kafka", "Docker"],
+    github: "https://github.com/Bhavdeepmnit",
+  },
+  {
+    title: "LibStack",
+    description:
+      "Multi-tenant SaaS platform for library operations using Next.js, TypeScript, and Supabase. Enforced tenant isolation with PostgreSQL Row-Level Security and built member, book, inventory, lending, overdue, and global search workflows.",
+    technologies: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS"],
+    github: "https://github.com/Bhavdeepmnit",
+  },
+  {
     title: "Advanced Land Cover Classification",
     description:
       "Spatiotemporal land cover classification system using FCN-ResNet50 semantic segmentation on multispectral satellite imagery. Designed a multi-year data pipeline with Google Earth Engine and PyTorch, achieving ~91% accuracy using HyperBCS (self-attention-based deep learning model) on real-world Landsat data. Modeled environmental degradation patterns for quantitative land-use change analysis.",

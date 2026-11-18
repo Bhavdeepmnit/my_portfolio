@@ -21,7 +21,7 @@ const items = [
   },
   {
     title: 'Academic Performance',
-    text: 'Intermediate/+2 at 96.80% — disciplined foundation in mathematics and CS fundamentals.',
+    text: 'B.Tech CGPA of 6.52/10 at MNIT Jaipur and 96.80% in Class XII.',
   },
   {
     title: 'Real-Time Systems',
